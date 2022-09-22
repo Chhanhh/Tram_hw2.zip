@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <h1>Open console excersise 1</h1>
+
+  <script src="../js/ex1.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Open console excersise 2</h1>
+
+    <script src="../js/ex2.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Open console</h1>
+    
+    <script src="../js/ex3.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Open console</h1>
+
+    <script src="../js/ex4.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Open Console</h1>
+
+    <script src="../js/ex5.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<h1>Click the button to give input.</h1>
+
+<button onclick="myFunction()">Click Me</button>
+
+<p id="demo"></p>
+
+<script>
+
+// function to count and return number of vowels in a string
+function countVowel(str) {
+	//Initializing vowels array to check for vowels
+    const vowels = ["a", "e", "i", "o", "u"]
+    // initialize count
+    let count = 0;
+
+    // loop through string to test if each character is a vowel
+    for (let letter of str.toLowerCase()) {
+        if (vowels.includes(letter)) {
+            count++;
+        }
+    }
+
+    // return number of vowels
+    return count
+}
+
+//function to check if a string is palindrome
+function checkPalindrome(string) {
+
+    // find the length of a string
+    const len = string.length;
+
+    // loop through half of the string
+    for (let i = 0; i < len / 2; i++) {
+
+        // check if first and last characters of string are same
+        if (string[i] !== string[len - 1 - i]) {
+            return 'and is not a palindrome';
+        }
+    }
+    return 'and is a palindrome';
+}
+function myFunction() {
+  let input = prompt("Enter a word", "Madam");
+  if (input != null) {
+    document.getElementById("demo").innerHTML =
+    input+" contains " + countVowel(input)+" vowels "+ checkPalindrome(input.toLowerCase());
+  }
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="design.css" />
+  </head>
+
+  <body>
+    <div id="divId">
+      <p>Guess a number and it should between 1 and 100</p><!-- it will show at top as an instruction-->
+      <p id="enterinputId">Enter the guessing number</p>
+      <input type="text" id="userInput" /><button id="button">Submit</button>
+    </div>
+    <script type="text/javascript">/* here as you can see I am using script which will give us power to include javascriptt
+    into the html and then we would write the logic inside this tag for button even handling and number guessing*/
+      /*to have a random number we got to use a special kind of  a function called as random and it's in an object in
+a the javascript and that object we name as the Math obect. */
+      let randomNum = Math.floor(Math.random() * 100 + 1);
+
+      // to count total Number of guesses by the user for correct guessing the randomNumber
+      let totalGuess = 1;
+      /*initally totalGuess will be 1 so if user finds at first attempt the random number then
+                total guess =1*/
+
+      document.getElementById("button").onclick = function () {
+        let userEnteredValue = document.getElementById("userInput").value;
+
+        if (userEnteredValue == randomNum) {
+          alert(
+            " Correct! It took you " +
+              totalGuess +
+              " attempts to guess the correct number. "
+          );
+        } else if (userEnteredValue > randomNum) {/*when user given number is kind of too large than
+the random number then it will show an output that too high and guess again.*/
+          /* if guessed number is bigger than our original random number*/ totalGuess++; /*guess will be incremented in both case if number is too low or too high to find total number of guess*/
+          alert("Too high,guess again");
+        } else if (userEnteredValue <= 0) {
+          alert("Enter the number between 1 and 100");
+        } else {
+          totalGuess++;
+          alert("Too low,guess again");
+        }
+      };
+    </script>
+  </body>
+</html>
